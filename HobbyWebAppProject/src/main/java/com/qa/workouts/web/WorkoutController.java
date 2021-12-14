@@ -19,13 +19,14 @@ import com.qa.workouts.domain.Workout;
 import com.qa.workouts.service.WorkoutService;
 
 @CrossOrigin
-
 @RestController
 public class WorkoutController {
 
 	private WorkoutService service;
 
 	@Autowired
+	
+
 
 	public WorkoutController(WorkoutService service) {
 		super();
