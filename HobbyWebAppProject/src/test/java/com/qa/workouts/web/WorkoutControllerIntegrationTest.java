@@ -1,5 +1,6 @@
 package com.qa.workouts.web;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -99,7 +100,7 @@ public class WorkoutControllerIntegrationTest {
 		ResultMatcher checkBody = content().json(json);
 		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
 	}
-	
+
 //	GET BY TARGET MUSCLE GROUP
 	@Test
 	void testGetByTargetMuscle() throws Exception {
@@ -111,18 +112,25 @@ public class WorkoutControllerIntegrationTest {
 		ResultMatcher checkBody = content().json(json);
 		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
 	}
-	
+
 //	UPDATE TEST
 	@Test
-	void testReplaceById() throws Exception{
+	void testReplaceById() throws Exception {
 		Workout testWorkout = new Workout(1, "Leg Press", "Legs", "quads", 110, 10, 5);
 		String json = this.mapper.writeValueAsString(testWorkout);
-		
+
 		RequestBuilder req = put("/replace/1").contentType(MediaType.APPLICATION_JSON).content(json);
 		ResultMatcher checkStatus = status().isAccepted();
 		ResultMatcher checkBody = content().json(json);
-
 		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
+	}
+
+//	REMOVE TEST
+	@Test
+	void testRemoveById() throws Exception {
+		RequestBuilder req = delete("/remove/1");
+		ResultMatcher checkStatus = status().isNoContent();
+		this.mvc.perform(req).andExpect(checkStatus);
 	}
 
 }
