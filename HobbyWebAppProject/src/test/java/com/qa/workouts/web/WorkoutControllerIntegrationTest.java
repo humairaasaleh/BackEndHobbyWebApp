@@ -1,8 +1,11 @@
 package com.qa.workouts.web;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,4 +51,16 @@ public class WorkoutControllerIntegrationTest {
 		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
 	}
 
+//	GET ALL TEST
+	@Test
+	void testGetAll() throws Exception {
+		List<Workout> testWorkouts = List.of(new Workout(1, "Leg Press", "Legs", "quads", 100, 10, 5));
+		String json = this.mapper.writeValueAsString(testWorkouts);
+
+		RequestBuilder req = get("/getAll");
+		ResultMatcher checkStatus = status().isOk();
+		ResultMatcher checkBody = content().json(json);
+
+		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
+	}
 }
