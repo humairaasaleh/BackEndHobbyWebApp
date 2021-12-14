@@ -2,6 +2,7 @@ package com.qa.workouts.web;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -108,6 +109,19 @@ public class WorkoutControllerIntegrationTest {
 		RequestBuilder req = get("/getByTargetMuscle/quads");
 		ResultMatcher checkStatus = status().isOk();
 		ResultMatcher checkBody = content().json(json);
+		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+//	UPDATE TEST
+	@Test
+	void testReplaceById() throws Exception{
+		Workout testWorkout = new Workout(1, "Leg Press", "Legs", "quads", 110, 10, 5);
+		String json = this.mapper.writeValueAsString(testWorkout);
+		
+		RequestBuilder req = put("/replace/1").contentType(MediaType.APPLICATION_JSON).content(json);
+		ResultMatcher checkStatus = status().isAccepted();
+		ResultMatcher checkBody = content().json(json);
+
 		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
 	}
 
