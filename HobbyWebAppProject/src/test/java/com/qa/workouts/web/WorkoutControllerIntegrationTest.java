@@ -98,5 +98,17 @@ public class WorkoutControllerIntegrationTest {
 		ResultMatcher checkBody = content().json(json);
 		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
 	}
+	
+//	GET BY TARGET MUSCLE GROUP
+	@Test
+	void testGetByTargetMuscle() throws Exception {
+		List<Workout> testWorkouts = List.of(new Workout(1, "Leg Press", "Legs", "quads", 100, 10, 5));
+		String json = this.mapper.writeValueAsString(testWorkouts);
+
+		RequestBuilder req = get("/getByTargetMuscle/quads");
+		ResultMatcher checkStatus = status().isOk();
+		ResultMatcher checkBody = content().json(json);
+		this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
+	}
 
 }
