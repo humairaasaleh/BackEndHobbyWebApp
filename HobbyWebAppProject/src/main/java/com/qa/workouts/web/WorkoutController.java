@@ -61,8 +61,8 @@ public class WorkoutController {
 
 //GET WORKOUTS BY BODYPART
 	@GetMapping("/getByBodypart/{bodypart}")
-	public ResponseEntity<List<Workout>> getWorkoutByBodypart(@PathVariable String bodypart) {
-		List<Workout> found = this.service.getAllWorkoutsByBodyPart(bodypart);
+	public ResponseEntity<List<Workout>> getWorkoutByBodypart(@PathVariable String bodyPart) {
+		List<Workout> found = this.service.getAllWorkoutsByBodyPart(bodyPart);
 		return ResponseEntity.ok(found);
 	}
 

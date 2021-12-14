@@ -67,7 +67,7 @@ public class WorkoutServiceDB implements WorkoutService {
 		Workout existing = this.repo.findById(id).get();
 
 		existing.setWorkoutName(newWorkout.getWorkoutName());
-		existing.setBodypart(newWorkout.getBodypart());
+		existing.setBodyPart(newWorkout.getBodyPart());
 		existing.setTargetMuscle(newWorkout.getTargetMuscle());
 		existing.setWeight(newWorkout.getWeight());
 		existing.setReps(newWorkout.getReps());
