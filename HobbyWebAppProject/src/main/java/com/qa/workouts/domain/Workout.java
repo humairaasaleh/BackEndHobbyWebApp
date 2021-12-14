@@ -15,7 +15,7 @@ public class Workout {
 	@Column(nullable = false)
 	private String workoutName;
 
-	private String bodypart;
+	private String bodyPart;
 	private String targetMuscle;
 	private int weight;
 	private int reps;
@@ -27,21 +27,21 @@ public class Workout {
 		super();
 	}
 
-	public Workout(String workoutName, String bodypart, String targetMuscle, int weight, int reps, int sets) {
+	public Workout(String workoutName, String bodyPart, String targetMuscle, int weight, int reps, int sets) {
 		super();
 		this.workoutName = workoutName;
-		this.bodypart = bodypart;
+		this.bodyPart = bodyPart;
 		this.targetMuscle = targetMuscle;
 		this.weight = weight;
 		this.reps = reps;
 		this.sets = sets;
 	}
 
-	public Workout(Integer id, String workoutName, String bodypart, String targetMuscle, int weight, int reps, int sets) {
+	public Workout(Integer id, String workoutName, String bodyPart, String targetMuscle, int weight, int reps, int sets) {
 		super();
 		this.id = id;
 		this.workoutName = workoutName;
-		this.bodypart = bodypart;
+		this.bodyPart = bodyPart;
 		this.targetMuscle = targetMuscle;
 		this.weight = weight;
 		this.reps = reps;
@@ -66,12 +66,12 @@ public class Workout {
 		this.workoutName = workoutName;
 	}
 
-	public String getBodypart() {
-		return bodypart;
+	public String getBodyPart() {
+		return bodyPart;
 	}
 
-	public void setBodypart(String bodypart) {
-		this.bodypart = bodypart;
+	public void setBodyPart(String bodyPart) {
+		this.bodyPart = bodyPart;
 	}
 
 	public String getTargetMuscle() {
@@ -110,7 +110,7 @@ public class Workout {
 
 	@Override
 	public String toString() {
-		return "Workout [id=" + id + ", workout=" + workoutName + ", bodypart=" + bodypart + ", targetMuscle="
+		return "Workout [id=" + id + ", workout=" + workoutName + ", bodypart=" + bodyPart + ", targetMuscle="
 				+ targetMuscle + ", weight=" + weight + ", reps=" + reps + ", sets=" + sets + "]";
 	}
 

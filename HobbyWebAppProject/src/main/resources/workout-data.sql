@@ -1,6 +1,6 @@
 INSERT into `workout` (
 	`workout_Name`,
-	`bodypart`,
+	`body_Part`,
 	`target_Muscle`,
 	`weight`,
 	`reps`,
