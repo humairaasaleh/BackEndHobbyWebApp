@@ -27,15 +27,15 @@ public class Workout {
 		super();
 	}
 
-	public Workout(String workoutName, String bodyPart, String targetMuscle, int weight, int reps, int sets) {
-		super();
-		this.workoutName = workoutName;
-		this.bodyPart = bodyPart;
-		this.targetMuscle = targetMuscle;
-		this.weight = weight;
-		this.reps = reps;
-		this.sets = sets;
-	}
+//	public Workout(String workoutName, String bodyPart, String targetMuscle, int weight, int reps, int sets) {
+//		super();
+//		this.workoutName = workoutName;
+//		this.bodyPart = bodyPart;
+//		this.targetMuscle = targetMuscle;
+//		this.weight = weight;
+//		this.reps = reps;
+//		this.sets = sets;
+//	}
 
 	public Workout(Integer id, String workoutName, String bodyPart, String targetMuscle, int weight, int reps, int sets) {
 		super();
