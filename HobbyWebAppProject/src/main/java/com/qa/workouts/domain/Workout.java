@@ -37,7 +37,8 @@ public class Workout {
 //		this.sets = sets;
 //	}
 
-	public Workout(Integer id, String workoutName, String bodyPart, String targetMuscle, int weight, int reps, int sets) {
+	public Workout(Integer id, String workoutName, String bodyPart, String targetMuscle, int weight, int reps,
+			int sets) {
 		super();
 		this.id = id;
 		this.workoutName = workoutName;

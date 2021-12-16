@@ -25,8 +25,6 @@ public class WorkoutController {
 	private WorkoutService service;
 
 	@Autowired
-	
-
 
 	public WorkoutController(WorkoutService service) {
 		super();
