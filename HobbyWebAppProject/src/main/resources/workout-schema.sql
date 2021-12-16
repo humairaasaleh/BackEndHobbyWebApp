@@ -1,0 +1,11 @@
+DROP TABLE IF EXISTS `workout` CASCADE;
+
+CREATE TABLE `workout` (
+	`id` INTEGER PRIMARY KEY AUTO_INCREMENT,
+	`workout_Name`  VARCHAR(255) NOT NULL,
+	`body_Part` VARCHAR(255) NOT NULL,
+	`target_Muscle` VARCHAR(255) NOT NULL,
+	`weight` INTEGER NOT NULL, 
+ 	`reps` INTEGER,
+ 	`sets` INTEGER
+ );
